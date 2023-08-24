@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display_topics</title>
+</head>
+<body>
+    <center>
+        <h1>Topic Table's Data</h1>
+        <table border="2px" style="border-collapse:collapse">
+            <tr>
+                <th>Topic_name</th>
+            </tr>
+
+        {% for to in QSTO %}
+
+        <tr>
+            <td>{{to.Topic_name}}</td>
+        </tr>
+
+        {% endfor %}
+
+        </table>
+    </center>
+    
+</body>
+</html>
