@@ -10,6 +10,7 @@
         <h1>Webpage Table's Data</h1>
         <table border="2px" style="border-collapse:collapse">
             <tr>
+                <th>pk</th>
                 <th>Topic_name</th>
                 <th>Name</th>
                 <th>url</th>
@@ -18,6 +19,7 @@
         {% for wo in QSWO %}
 
         <tr>
+            <td>{{wo.pk}}</td>
             <td>{{wo.Topic_name}}</td>
             <td>{{wo.Name}}</td>
             <td>{{wo.url}}</td>

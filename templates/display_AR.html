@@ -10,6 +10,7 @@
         <h1>AccessRecord Table's Data</h1>
         <table border="2px" style="border-collapse:collapse">
             <tr>
+                <th>pk</th>
                 <th>Name</th>
                 <th>Date</th>
                 <th>Author</th>
@@ -19,6 +20,7 @@
         {% for ao in QSARO %}
 
         <tr>
+            <td>{{ao.pk}}</td>
             <td>{{ao.Name}}</td>
             <td>{{ao.Date}}</td>
             <td>{{ao.Author}}</td>

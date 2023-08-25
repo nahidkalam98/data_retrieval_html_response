@@ -23,5 +23,8 @@ urlpatterns = [
     path('display_topics/', display_topics, name='display_topics'),
     path('display_webpage/', display_webpage, name='display_webpage'),
     path('display_AR/', display_AR, name= 'display_AR'),
+    path('Insert_Topic/', Insert_Topic, name='Insert_Topic'),
+    path('Insert_Webpage/', Insert_Webpage, name='Insert_Webpage'),
+    path('Insert_AC/', Insert_AC, name= 'Insert_AC')
     
 ]
