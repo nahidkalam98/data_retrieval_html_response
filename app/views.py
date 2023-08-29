@@ -6,6 +6,8 @@ from app.models import *
 
 from django.db.models.functions import Length
 
+from django.db.models import Q
+
 def display_topics(request):
     QSTO = Topic.objects.all()
     
@@ -39,6 +41,9 @@ def display_webpage(request):
     QSWO = Webpage.objects.filter(url__regex='in$')
     QSWO = Webpage.objects.filter(Name__regex='^v')
     QSWO = Webpage.objects.filter(Name__regex='^V')
+    
+    QSWO = Webpage.objects.filter(Q(Topic_name='Cricket') & Q(Name__contains='v'))
+    QSWO = Webpage.objects.filter(Q(Name__contains='v') | Q(url__regex='in$'))
      
     d = {'QSWO': QSWO}
     return render(request, 'display_webpage.html', d)
@@ -64,6 +69,11 @@ def display_AR(request):
     
     QSARO = AccessRecord.objects.filter(Author__contains='a')
     QSARO = AccessRecord.objects.filter(email__regex='\w*[.]\w+@gmail[.]com')
+    
+    QSARO = AccessRecord.objects.filter(Q(Date__year__lte='2005') & Q(email__regex='\d+'))
+    QSARO = AccessRecord.objects.filter(Q(Date__year='1998') | Q(email__contains='r'))
+    
+
     
     
     d = {'QSARO': QSARO}
