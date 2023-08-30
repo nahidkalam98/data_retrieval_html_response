@@ -25,6 +25,7 @@ urlpatterns = [
     path('display_AR/', display_AR, name= 'display_AR'),
     path('Insert_Topic/', Insert_Topic, name='Insert_Topic'),
     path('Insert_Webpage/', Insert_Webpage, name='Insert_Webpage'),
-    path('Insert_AC/', Insert_AC, name= 'Insert_AC')
-    
+    path('Insert_AC/', Insert_AC, name= 'Insert_AC'),
+    path('update_webpage/', update_webpage, name= 'update_webpage'),
+    path('delete_webpage/', delete_webpage, name= 'delete_webpage'),
 ]

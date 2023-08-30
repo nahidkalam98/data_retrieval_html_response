@@ -125,3 +125,42 @@ def Insert_AC(request):
     QSARO = AccessRecord.objects.all()
     d = {'QSARO': QSARO}
     return render(request, 'display_AR.html', d)
+
+
+def update_webpage(request):
+    
+    #Webpage.objects.filter(Name='Gukesh D').update(url='https://dgukesh.in')
+    #Webpage.objects.filter(Topic_name='Volleyball').update(Name='Abraham Minimol', url='http://minimol.a.in')
+    #Webpage.objects.filter(Topic_name='Football').update(Name='Messi')
+    #Webpage.objects.filter(Topic_name='Boxing').update(Name='Mary Kom')
+    
+    '''integrity error-foreign key constraint failed as boxing not in parent table'''
+    #Webpage.objects.filter(Name='Virat Kohli').update(Topic_name='Boxing')
+    
+    #Webpage.objects.update_or_create(url='http://rnl.com', defaults={'Name':'Ronaldo'})
+    
+    '''Multiple objects returned as two data under football-- updation by update_or_create method will not be allowed'''
+    #Webpage.objects.update_or_create(Topic_name='Football', defaults={'Name':'Neymar'})
+    
+    '''3 columns in table but value for only two provided'''
+    #Webpage.objects.update_or_create(Name='Mary Kom', defaults={'url':'https://maryk.co.in'})
+    
+    '''Provide object when trying to update foreign key for already existing parent table value'''
+    #Webpage.objects.update_or_create(Name='Magnus Carlsen', defaults={'Topic_name': 'Chess', 'url':'https://cmagnus.co.in'})
+    
+    CHTO = Topic.objects.get(Topic_name= 'Chess')    
+    Webpage.objects.update_or_create(Name='Magnus Carlsen', defaults={'Topic_name': CHTO, 'url':'https://cmagnus.co.in'})
+
+    
+    QSWO = Webpage.objects.all()
+    d = {'QSWO': QSWO}
+    return render(request, 'display_webpage.html', d)
+
+
+def delete_webpage(request):
+    
+    Webpage.objects.filter(Name = 'Gukesh D').delete()
+    
+    QSWO = Webpage.objects.all()
+    d = {'QSWO': QSWO}
+    return render(request, 'display_webpage.html', d)
